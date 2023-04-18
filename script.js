@@ -1,77 +1,70 @@
-let btnPlay = document.getElementById('btnPlay')
-let btnReset = document.getElementById('btnReset')
-let btnTranslate = document.getElementById('btnTranslate')
-btnTranslate.style.visibility = 'hidden'
-let question = document.querySelector('h1')
+const put = document.getElementById('put')
+const putz = document.getElementById('putz')
+const pan = document.getElementById('pan')
 
-btnReset.addEventListener('click', function() {
-    window.location.reload()
+let translate = document.getElementById('translate')
+
+putz.addEventListener('click', function() {
+    let right = document.getElementById('right')
+    right.play()
+    translate.style.visibility = 'visible'
+    let click1 = document.getElementById('click1')
+    click1.play()
+    let sentence = document.getElementById('sentence')
+    sentence.innerText = 'putzing around.'
+    putz.style.backgroundColor = 'lime'
+    putz.style.color = 'green'
+    put.disabled = 'true'
+    pan.disabled = 'true'
+    putz.disabled = 'true'
 })
 
-btnPlay.addEventListener('click', function() {
-    let audio = document.getElementById('click')
+put.addEventListener('click', function() {
+    let click2 = document.getElementById('click2')
+    click2.play()
+    let oops1 = document.getElementById('oops1')
+    oops1.play()
+    let img1 = document.getElementById('img1')
+    img1.style.opacity = '0'
+    let img2 = document.getElementById('img2')
+    img2.style.opacity = '1'
+    setTimeout(() => {
+        img1.style.opacity = '1'
+        img2.style.opacity = '0'
+    }, 500);
+    put.style.backgroundColor = 'red'
+    put.style.color = 'yellow'
+    put.disabled = 'true'
+})
+
+pan.addEventListener('click', function() {
+    let click3 = document.getElementById('click3')
+    click3.play()
+    let oops2 = document.getElementById('oops2')
+    oops2.play()
+    let img1 = document.getElementById('img1')
+    img1.style.opacity = '0'
+    let img2 = document.getElementById('img2')
+    img2.style.opacity = '1'
+    img2.style.opacity = '1'
+    setTimeout(() => {
+        img1.style.opacity = '1'
+        img2.style.opacity = '0'
+    }, 500);
+    pan.style.backgroundColor = 'red'
+    pan.style.color = 'yellow'
+    pan.disabled = 'true'
+})
+
+translate.addEventListener('click', function() {
+    let audio = document.getElementById('audio')
     audio.play()
-    let video = document.getElementById('video')
-    video.play()
+    let click2 = document.getElementById('click2')
+    click2.play()
+    let sentence = document.getElementById('sentence')
+    translate.innerText = 'Ela tá afim de não fazer nada.'
+    setTimeout(() => {
+        translate.innerHTML = 'Translate and Listen'
+    }, 2000);
 })
 
-btnTranslate.addEventListener('click', function() {
-    let audio = document.getElementById('click')
-    audio.play()
-    question.innerHTML = 'Ela tá afim de não fazer nada.'
-    question.style.color = 'lawngreen'
-    setTimeout(function() {
-        question.innerHTML = 'She feels like just putzing around.'
-        question.style.color = 'yellow'
-    }, 3000)
-})
-
-//Drag and Drop Events
-
-let dragger = ["", "", "", "", ""]
-
-function allowDrop(ev) {
-    ev.preventDefault()
-}
-
-function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id)
-}
-
-function drop(ev) {
-    if (dragger[parseInt(ev.target.id)] == "") {
-        var data = ev.dataTransfer.getData("text")
-        dragger[parseInt(ev.target.id)] = data
-        ev.target.appendChild(document.getElementById(data))
-    }
-
-
-if (dragger[0] != "" && dragger[1] != "" && dragger[2] != "" && dragger[3] != "" && dragger[4] != "") {
-
-    if (dragger[0] == "1" && dragger[1] == "2" && dragger[2] == "3" && dragger[3] == "4" && dragger[4] == "5") {
-        let audio = document.getElementById('confirm')
-        audio.play()
-        let question = document.querySelector('h1')
-        question.innerHTML = "Excellent!"
-        question.style.color = 'lime'
-        let img = document.querySelector('img')
-        img.style.visibility = 'hidden'
-
-        setTimeout(function() {
-            question.innerHTML = 'She feels like just putzing around.'
-            question.style.color = 'yellow'
-            let audio = document.getElementById('putzing')
-            audio.play()
-            btnTranslate.style.visibility = 'visible'
-        }, 2000)
-    } else {
-        let audio = document.getElementById('boing')
-        audio.play()
-        let question = document.querySelector('h1')
-        question.innerHTML = 'Try again!'
-        question.style.color = 'red'
-        let img = document.querySelector('img')
-        img.style.visibility = 'hidden'
-    }
-  }
-}
