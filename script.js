@@ -22,8 +22,8 @@ putz.addEventListener('click', function() {
 put.addEventListener('click', function() {
     let click2 = document.getElementById('click2')
     click2.play()
-    let oops1 = document.getElementById('oops1')
-    oops1.play()
+    let wrong1 = document.getElementById('wrong1')
+    wrong1.play()
     let img1 = document.getElementById('img1')
     img1.style.opacity = '0'
     let img2 = document.getElementById('img2')
@@ -40,8 +40,8 @@ put.addEventListener('click', function() {
 pan.addEventListener('click', function() {
     let click3 = document.getElementById('click3')
     click3.play()
-    let oops2 = document.getElementById('oops2')
-    oops2.play()
+    let wrong2 = document.getElementById('wrong2')
+    wrong2.play()
     let img1 = document.getElementById('img1')
     img1.style.opacity = '0'
     let img2 = document.getElementById('img2')
